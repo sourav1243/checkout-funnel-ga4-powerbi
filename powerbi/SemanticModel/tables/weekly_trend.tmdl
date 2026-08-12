@@ -1,0 +1,23 @@
+// Weekly trend by device category (sql/02 Query B)
+// Counts only — the rate is a measure, so it recalculates under any filter.
+table weekly_trend
+    column week_start
+        dataType: dateTime
+
+    column device_category
+        dataType: string
+
+    column total_sessions
+        dataType: int64
+
+    column sessions_purchased
+        dataType: int64
+
+    measure 'Weekly Sessions' = SUM(weekly_trend[total_sessions])
+        formatString: '#,##0'
+
+    measure 'Weekly Purchases' = SUM(weekly_trend[sessions_purchased])
+        formatString: '#,##0'
+
+    measure 'Weekly Conversion Rate' = DIVIDE([Weekly Purchases], [Weekly Sessions])
+        formatString: '0.0%'

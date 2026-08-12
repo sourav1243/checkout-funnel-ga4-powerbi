@@ -1,0 +1,50 @@
+// Segment summary: country x device category rollup (sql/02 Query A)
+// Counts only — rates are computed as measures below, per docs/PROJECT_SPEC.md §8.
+table segment_summary
+    column country
+        dataType: string
+
+    column device_category
+        dataType: string
+
+    column total_sessions
+        dataType: int64
+
+    column sessions_viewed_item
+        dataType: int64
+
+    column sessions_added_to_cart
+        dataType: int64
+
+    column sessions_began_checkout
+        dataType: int64
+
+    column sessions_purchased
+        dataType: int64
+
+    measure 'Total Sessions' = SUM(segment_summary[total_sessions])
+        formatString: '#,##0'
+
+    measure 'Sessions Viewed Item' = SUM(segment_summary[sessions_viewed_item])
+        formatString: '#,##0'
+
+    measure 'Sessions Added to Cart' = SUM(segment_summary[sessions_added_to_cart])
+        formatString: '#,##0'
+
+    measure 'Sessions Began Checkout' = SUM(segment_summary[sessions_began_checkout])
+        formatString: '#,##0'
+
+    measure 'Sessions Purchased' = SUM(segment_summary[sessions_purchased])
+        formatString: '#,##0'
+
+    measure 'View-to-Cart Rate' = DIVIDE([Sessions Added to Cart], [Sessions Viewed Item])
+        formatString: '0.0%'
+
+    measure 'Cart-to-Checkout Rate' = DIVIDE([Sessions Began Checkout], [Sessions Added to Cart])
+        formatString: '0.0%'
+
+    measure 'Checkout-to-Purchase Rate' = DIVIDE([Sessions Purchased], [Sessions Began Checkout])
+        formatString: '0.0%'
+
+    measure 'Overall Conversion Rate' = DIVIDE([Sessions Purchased], [Total Sessions])
+        formatString: '0.0%'
