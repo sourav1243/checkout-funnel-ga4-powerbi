@@ -123,3 +123,40 @@ Cross-check at least 5 segments' numbers on this dashboard against the
 Excel workbook's independent formulas (`excel/README.md`). If they
 disagree anywhere, find out why before publishing — see
 `docs/PROJECT_SPEC.md` §7, Phase 5.
+
+Expected values for spot-checking (from the same counts in
+`excel/Checkout_Funnel_Analysis_Template.xlsx` — a dashboard number that
+deviates from these is either a DAX error or a rounding note):
+
+**Overview page (all 77,317 sessions):**
+
+| Measure | Expected |
+|---|---|
+| Total Sessions | 77,317 |
+| Sessions Viewed Item | 77,020 |
+| Sessions Added to Cart | 15,188 |
+| Sessions Began Checkout | 11,106 |
+| Sessions Purchased | 4,848 |
+| View-to-Cart Rate | 19.7% |
+| Cart-to-Checkout Rate | 73.1% |
+| Checkout-to-Purchase Rate | 43.7% |
+| Overall Conversion Rate | 6.3% |
+
+**Segment spot-checks (V2C / C2CO / CO2P / Overall):**
+
+| Segment | Sessions | Rates |
+|---|---|---|
+| United States × desktop | 19,799 | 19.6% / 73.7% / 42.8% / 6.2% |
+| United States × mobile | 13,500 | 20.3% / 71.6% / 44.0% / 6.3% |
+| India × desktop | 4,243 | 19.0% / 72.6% / 43.7% / 6.0% |
+| Canada × mobile | 2,358 | 20.7% / 76.0% / 44.1% / 6.9% |
+| United States × tablet | 752 | 19.8% / 63.1% / 40.4% / 5.1% |
+
+**Weekly trend spot-checks (Weekly Conversion Rate):**
+
+| Week starting | desktop | mobile | tablet |
+|---|---|---|---|
+| 2020-11-30 | 7.5% | 7.6% | 8.1% |
+| 2020-12-14 | 7.5% | 8.2% | 4.6% |
+| 2020-12-28 | 4.2% | 4.6% | 7.1% |
+| 2021-01-25 | 4.4% | 5.8% | 7.0% |

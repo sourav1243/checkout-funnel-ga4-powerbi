@@ -18,3 +18,7 @@ Thumbs.db
 
 # Power BI temp/backup
 *.pbix.bak
+
+# Execution scratch — not part of the public repo
+instructions.md
+.local_query_cache/

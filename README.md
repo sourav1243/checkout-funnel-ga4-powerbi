@@ -57,11 +57,11 @@ Full spec, phase-by-phase plan, and done-criteria for each step:
 
 ## Status
 
-- [ ] Data pulled from BigQuery
-- [ ] Data quality checks run
-- [ ] Excel cross-check complete
-- [ ] Power BI dashboard built
-- [ ] Findings written
+- [x] Data pulled from BigQuery
+- [x] Data quality checks run
+- [x] Excel cross-check complete
+- [ ] Power BI dashboard built (human-completed per `powerbi/DASHBOARD_BUILD_GUIDE.md` — spot-check values in its §7)
+- [x] Findings written
 
 *(Update this checklist as each step is actually completed — it's a more honest
 signal to anyone reading the repo than a README that claims a finished project on
