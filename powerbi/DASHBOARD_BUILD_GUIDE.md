@@ -77,13 +77,10 @@ Weekly Purchases = SUM(weekly_trend[sessions_purchased])
 Weekly Conversion Rate = DIVIDE([Weekly Purchases], [Weekly Sessions])
 ```
 
-The same tables and measures are also provided as a TMDL scaffold in
-`SemanticModel/tables/` (one `.tmdl` per table, measures included). TMDL
-is the plain-text definition format Power BI uses internally for `.pbip`
-projects — useful as a starting point or diffable reference. The data
-sources/partitions are intentionally left out: import the tables via the
-CSV or BigQuery connector (see §1) and Power BI wires the partitions up
-when the model opens.
+The same measures are also checked in as TMDL in `SemanticModel/tables/`
+(one file per table) if you prefer that format. Data sources/partitions
+aren't included — import the tables via CSV or the BigQuery connector (§1)
+and the model will pick them up.
 
 ## 4. Page 1 — Overview
 
