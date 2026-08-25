@@ -106,7 +106,30 @@ points to the product-page → cart step as the highest-leverage surface:
 start with the largest single segment, **US desktop (19,799 sessions)**, by
 reviewing what happens between item view and cart add (browse depth,
 session engagement, price/availability presentation) before touching
-anything downstream. Second priority: the Indonesia mobile segment
-(3.96% conversion at 657 sessions) is the worst real-country number at
-usable volume and is a cheap follow-up test. No change should precede a
+anything downstream. Second priority: the Indonesia segment (3.96%
+conversion at 657 sessions, the lowest among countries with ≥500 sessions)
+is a cheap follow-up test. No change should precede a
 baseline re-measure in the same 92-day window.
+
+## Appendix — Is the December peak vs. January drop beyond noise? (optional)
+
+Per `docs/PROJECT_SPEC.md` §9, a single lightweight check as an optional
+extension. Numbers are from `weekly_trend` (see `.local_query_cache/weekly_trend.csv`).
+
+- Week of 2020-12-07: 772 purchases / 8,273 sessions = 9.33%
+- Week of 2021-01-04: 162 purchases / 4,452 sessions = 3.64%
+- Difference: 5.69 points
+
+Two-proportion z-test, pooled:
+
+```
+p̂ = (772 + 162) / (8,273 + 4,452) = 0.0734
+SE = sqrt(p̂(1-p̂)(1/8273 + 1/4452)) ≈ 0.0049
+z  = (0.0933 − 0.0364) / SE ≈ 11.7
+p  < 0.001 (two-sided)
+```
+
+The drop is far beyond sampling variation — the weekly shape is real.
+This still does not explain *why* January is lower; holiday demand, traffic
+mix, and the volume drop (8,273 → 4,452 sessions) are all plausible drivers.
+Use it as confirmation to investigate causes separately, not as a causal claim.
